@@ -1,4 +1,4 @@
-# Stock Market Analysis MCP
+# Stock Market Analysis MCP:
 
 Welcome to the Stock Market Analysis project, powered by [crewAI](https://crewai.com). This project provides a sophisticated stock market analysis system that leverages AI agents to analyze market data, technical indicators, and market sentiment.
 
