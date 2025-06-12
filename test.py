@@ -15,7 +15,7 @@ with MCPServerAdapter(server_params) as tools:
         verbose=True,
     )
     task = Task(
-        description="give a detailed analysis of the stock market , for the company RELIANCE during the period 2025-01-01 to 2025-01-30",
+        description="give a detailed analysis of the stock market , for the company JIO during the period 2025-01-01 to 2025-01-30",
         expected_output="analysis.md file , remove ```",
         output_file="analysis.md",
         agent=agent,
