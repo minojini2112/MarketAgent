@@ -1,4 +1,4 @@
-# Stock Market Analysis MCP:
+# Stock Market Analysis MCP
 
 Welcome to the Stock Market Analysis project, powered by [crewAI](https://crewai.com). This project provides a sophisticated stock market analysis system that leverages AI agents to analyze market data, technical indicators, and market sentiment.
 
@@ -55,7 +55,7 @@ python test.py
 
 This will:
 - Initialize a stock market expert agent
-- Analyze the specified stock (default: RELIANCE)
+- Analyze the specified stock (default: JIOFINANCE)
 - Generate a detailed analysis report in `analysis.md`
 
 ## Understanding the Analysis
@@ -88,16 +88,29 @@ server_params = {"url": "http://localhost:8000/sse"}
 
 # Create and run the analysis
 with MCPServerAdapter(server_params) as tools:
+    # Create a stock market expert agent
     agent = Agent(
-        role="Stock Market Expert",
-        goal="Analyze market data and generate insights",
-        tools=tools
+        role="you are an stock market expert",
+        goal="to use all available mcp tools and the data got from the mcp tool and make a report about the stock market",
+        backstory="An AI that can analyze stock market problems via an MCP tool.",
+        tools=tools,
+        verbose=True
     )
+
+    # Define the analysis task
     task = Task(
-        description="Analyze RELIANCE stock for the period 2025-01-01 to 2025-01-30",
+        description="give a detailed analysis of the stock market, for the company JIOFINANCE during the period 2025-01-01 to 2025-01-30",
+        expected_output="analysis.md file, remove ```",
+        output_file="analysis.md",
         agent=agent
     )
-    crew = Crew(agents=[agent], tasks=[task])
+
+    # Create and run the crew
+    crew = Crew(
+        agents=[agent],
+        tasks=[task],
+        verbose=True
+    )
     result = crew.kickoff()
 ```
 

@@ -9,7 +9,7 @@ def fetch_historical_nse_data(symbols, start_date, end_date):
     Fetches historical OHLCV data from NSE of India and returns a list of simple dicts.
 
     Args:
-        symbols (list of str): NSE ticker symbols (e.g., ['RELIANCE', 'TCS']).
+        symbols (list of str): NSE ticker symbols (e.g., ['RELIANCE', 'TCS' , 'JIOFIN']).
         start_date (str): Start date in 'YYYY-MM-DD'.
         end_date (str): End date in 'YYYY-MM-DD'.
 
@@ -445,7 +445,7 @@ def fetch_options_data(symbol, expiry_date=None):
     Fetches and analyzes options data for a given stock symbol.
 
     Args:
-        symbol (str): Stock symbol (e.g., 'RELIANCE')
+        symbol (str): Stock symbol (e.g., 'RELIANCE','JIOFIN'	)
         expiry_date (str, optional): Options expiry date in 'YYYY-MM-DD' format. If None, fetches nearest expiry.
 
     Returns:
@@ -519,7 +519,7 @@ def fetch_options_data(symbol, expiry_date=None):
     }
 
 # Example usage:
-#data = fetch_historical_nse_data(['RELIANCE'], '2025-01-01', '2025-05-30')
+#data = fetch_historical_nse_data(['JIOFIN'], '2025-01-01', '2025-05-30')
 #print(data)
 '''stats = compute_summary_statistics(data)
 print(stats)
@@ -549,7 +549,7 @@ for symbol, values in mfi_results.items():
     print(f"Latest Money Flow: {values[-1]['money_flow']:,.0f}")
 
 # Example usage for sentiment data
-symbols = ['RELIANCE', 'TCS']
+symbols = ['RELIANCE', 'TCS' , 'JIOFIN']
 start_date = '2025-01-01'
 end_date = '2025-01-10'
 sentiment_data = fetch_market_sentiment(symbols, start_date, end_date)
@@ -566,7 +566,7 @@ for symbol in symbols:
         print("Top Headlines:", day_data['top_headlines'])
 
 # Example usage for options data
-options_data = fetch_options_data('RELIANCE')
+options_data = fetch_options_data('JIOFIN')
 print(f"\nOptions data for {options_data['symbol']}:")
 print(f"Current Price: {options_data['current_price']}")
 print(f"Put-Call Ratio: {options_data['put_call_ratio']}")
