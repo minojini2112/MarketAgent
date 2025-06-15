@@ -59,3 +59,7 @@ News sentiment shows considerable fluctuation throughout January 2025, ranging f
 **Conclusion:**
 
 While a comprehensive analysis is hampered by the missing quantitative data, the sentiment data indicates notable shifts in market perception of JIO during January 2025.  Positive news regarding partnerships and market expansions appears to offset concerns reflected in some negative news and social media sentiment. Future analysis incorporating complete market data would provide more robust insights.
+
+```python
+import numpy as np
+```
